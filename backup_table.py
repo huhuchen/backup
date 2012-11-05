@@ -8,7 +8,6 @@ import sys
 PREFIX = dirname(abspath(__file__))
 sys.path.append(PREFIX)
 
-print "sys", sys.path
 from settings import DATABASE_CONFIG
 COMM_OPTION = "-h%s -P%s -u%s -p%s %s"
 
@@ -24,7 +23,7 @@ def backup_table(key, host, port, name, user, password):
     cmd = "%s %s %s" % ("mysqldump", backup_table_option, comm_option)
     #print cmd
 
-    with open(join(PREFIX, "table_%s.sql"%key), "w") as backfile:
+    with open(join(PREFIX, "%s_table.sql"%key), "w") as backfile:
         subprocess.Popen(
             cmd.split(),
             stdout=backfile

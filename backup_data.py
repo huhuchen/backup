@@ -4,6 +4,7 @@
 import subprocess
 from os.path import dirname, abspath , join
 import sys
+import datetime
 
 PREFIX = dirname(abspath(__file__))
 sys.path.append(PREFIX)
@@ -17,7 +18,8 @@ def backup_data(key, host, port, name, user, password):
 
     backup_data_option = "--no-create-info --quick --default-character-set=utf8 --skip-opt --hex-blob"
 
-    cmd = "%s %s %s | lzma > %s/stdyun_%s.sql.lzma" % ("mysqldump", backup_data_option, comm_option, DATA_BACKUP_DIRNAME, key)
+    now = datetime.datetime.now().strftime("%Y%m%d")
+    cmd = "%s %s %s | lzma > %s/%s_data_%s.sql.lzma" % ("mysqldump", backup_data_option, comm_option, DATA_BACKUP_DIRNAME, key, now)
     subprocess.Popen(cmd, shell=True)
 
 def backup_all():
