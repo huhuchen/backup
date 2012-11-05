@@ -8,7 +8,4 @@ scp  *${now}.sql.lzma ${remote_addr}
 md5sum *${now}.sql.lzma *${now}.sql  > backup_${now}.md5
 scp backup_${now}.md5 ${remote_addr}
 old_date=$(date -d "7 days ago" +%Y%m%d)
-result=$(find *${old_date}*)
-if [ result ];then
-    rm *${old_date}* 
-fi    
+find . -name "*${old_date}*" -exec rm {} \;
