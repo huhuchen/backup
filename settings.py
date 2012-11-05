@@ -12,18 +12,6 @@ DATABASE_CONFIG = {
     "ns1":{
         "master": DB_HOST_ONLINE,
         "tables": (
-            "user",
-            "domain",
-            "mail_log_status",
-            "mail_log",
-            "verify",
-            "trade",
-            "ns_dkim",
-            "vm",
-            "order",
-            "plan_recharge",
-            "plan_settlement",
-            "plan",
             "plan_recharge",
             "*",
         )
