@@ -1,2 +1,2 @@
 #!/bin/bash
-md5sum -c backup.md5
+md5sum -c backup.md5; echo $?
